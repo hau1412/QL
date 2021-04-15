@@ -151,9 +151,6 @@ const StackScreenCompo = () => {
             <Stack.Screen name={'Nhanvienchitiet'} component={Nhanvienchitiet} />
             <Stack.Screen name={'Nppchitiet'} component={Nppchitiet} />
 
-
-
-
         </Stack.Navigator>
     );
 };

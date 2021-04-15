@@ -25,7 +25,7 @@ const Home = ({ navigation }) => {
     }
 
     const onPressQLKho = () => {
-
+        navigation.navigate('QLKho')
     }
     return (
         <View style={styles.container}>
