@@ -12,6 +12,8 @@ import ListNV from '../screen/ListNV';
 import ListSP from '../screen/ListSP';
 import ListNPP from '../screen/ListNPP';
 import QLKho from '../screen/QLKho';
+import SanphamChitiet from '../screen/SanphamChitiet';
+import Nhanvienchitiet from '../screen/Nhanvienchitiet';
 
 const AuthContext = React.createContext();
 
@@ -144,6 +146,10 @@ const StackScreenCompo = () => {
             <Stack.Screen name={'ListNV'} component={ListNV} />
             <Stack.Screen name={'ListNPP'} component={ListNPP} />
             <Stack.Screen name={'QLKho'} component={QLKho} />
+            <Stack.Screen name={'SanphamChitiet'} component={SanphamChitiet} />
+            <Stack.Screen name={'Nhanvienchitiet'} component={Nhanvienchitiet} />
+
+
 
         </Stack.Navigator>
     );

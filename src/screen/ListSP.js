@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, StyleSheet, Text, TextInput, View, FlatList } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TextInput, View, FlatList, Pressable } from 'react-native'
 import { Header, Button, Input, ListItem, Avatar } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons';
 import firebase from 'firebase'
@@ -65,18 +65,25 @@ const ListSP = ({ navigation }) => {
         setHidenThem(true)
     }
 
+
     const renderItem = ({ item }) => {
-        console.log('izsdasd', item)
+        const onPressSanPham = () => {
+            navigation.navigate('SanphamChitiet', { item: item })
+        }
         return (
-            <ListItem bottomDivider>
-                <ListItem.Content>
-                    <ListItem.Title>{item.TenSP}</ListItem.Title>
-                    <ListItem.Subtitle>{item.GiabanSP}</ListItem.Subtitle>
-                </ListItem.Content>
-                <ListItem.Chevron />
-            </ListItem>
+            <Pressable onPress={() => onPressSanPham()}>
+                <ListItem bottomDivider>
+                    <ListItem.Content>
+                        <ListItem.Title>{item.TenSP}</ListItem.Title>
+                        <ListItem.Subtitle>{item.GiabanSP}</ListItem.Subtitle>
+                    </ListItem.Content>
+                    <ListItem.Chevron />
+                </ListItem>
+            </Pressable>
         )
     }
+
+
     return (
         <View style={styles.container}>
 

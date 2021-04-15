@@ -16,7 +16,7 @@ const Home = ({ navigation }) => {
     }
 
     const onPressListNV = () => {
-
+        navigation.navigate('ListNV')
     }
 
     const onPressListNPP = () => {
