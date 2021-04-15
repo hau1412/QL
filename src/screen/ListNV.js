@@ -36,6 +36,8 @@ const ListNV = ({ navigation }) => {
             setList(array);
         })
     }
+
+
     const onPressThemNV = () => {
         firebase.database().ref('Nhanvien/' + maNV).set({
             maNV: maNV,
