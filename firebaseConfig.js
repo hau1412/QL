@@ -1,12 +1,12 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCE45XSwmzx-i4LMWMEerkUCr33IODsH7c",
-    authDomain: "caco-cooking-guide.firebaseapp.com",
-    databaseURL: "https://caco-cooking-guide-default-rtdb.firebaseio.com",
-    projectId: "caco-cooking-guide",
-    storageBucket: "caco-cooking-guide.appspot.com",
-    messagingSenderId: "898177636172",
-    appId: "1:898177636172:web:422df9650a410626bd61e9",
-    measurementId: "G-YZGGBWBFSH"
+    apiKey: "AIzaSyAUZrKB4eBm8_aqbWVviKWa-R1PWSxBQfU",
+    authDomain: "quanly-f8a5e.firebaseapp.com",
+    databaseURL: "https://quanly-f8a5e-default-rtdb.firebaseio.com",
+    projectId: "quanly-f8a5e",
+    storageBucket: "quanly-f8a5e.appspot.com",
+    messagingSenderId: "512695227833",
+    appId: "1:512695227833:web:5e6f6740ebbab8d3801268",
+    measurementId: "G-M7R2LEB4JL"
 };
 
 export default firebaseConfig
