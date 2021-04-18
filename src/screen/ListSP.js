@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView, StyleSheet, Text, TextInput, View, FlatList, Pressable } from 'react-native'
-import { Header, Button, Input, ListItem, Avatar } from 'react-native-elements'
+import { Header, Button, Input, ListItem, Avatar, SearchBar } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/Ionicons';
 import firebase from 'firebase'
 import { NavigationContainer } from '@react-navigation/native';
@@ -22,9 +22,18 @@ const ListSP = ({ navigation }) => {
     const [GiabanSP, setGiabanSP] = useState()
     const [AnhSP, setAnhSP] = useState()
 
+    const [Textsearch, setTextSearch] = useState('')
+    const [newList, setNewList] = useState([])
+
     useEffect(() => {
         getData()
     }, [])
+
+    useEffect(() => {
+        FilterData()
+    }, [Textsearch])
+
+
 
     const getData = () => {
         firebase.database().ref('Sanpham/').on('value', (snapshot) => {
@@ -82,6 +91,15 @@ const ListSP = ({ navigation }) => {
             </Pressable>
         )
     }
+    const FilterData = () => {
+        setNewList(list.filter((list) => list.tenSP.toLowerCase().includes(Textsearch.toLowerCase())))
+    }
+
+
+
+    const onSearch = () => {
+
+    }
 
 
     return (
@@ -92,6 +110,21 @@ const ListSP = ({ navigation }) => {
                 centerComponent={{ text: 'QUẢN LÝ SẢN PHẨM', style: { color: '#fff' } }}
                 rightComponent={{ icon: 'home', color: '#fff', }}
             />
+            {
+                !hidenThem ? (
+                    <SearchBar
+                        placeholder="Type Here..."
+                        onChangeText={(text) => setTextSearch(text)}
+                        value={Textsearch}
+                        platform="ios"
+
+                    />
+                ) : (
+                    <View>
+
+                    </View>
+                )
+            }
 
             {
                 hidenThem ? (
@@ -156,12 +189,20 @@ const ListSP = ({ navigation }) => {
                             }
                             title="Them San Pham"
                         />
-                        <FlatList
-                            keyExtractor={(item) => item?.id + '_'}
-                            data={list}
-                            renderItem={renderItem}
-                        />
-
+                        {
+                            Textsearch == '' ? (
+                                <FlatList
+                                    keyExtractor={(item) => item?.id + '_'}
+                                    data={list}
+                                    renderItem={renderItem}
+                                />
+                            ) :
+                                (<FlatList
+                                    keyExtractor={(item) => item?.id + '_'}
+                                    data={newList}
+                                    renderItem={renderItem}
+                                />)
+                        }
                     </View>
 
                 )
